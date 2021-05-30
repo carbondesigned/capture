@@ -2,14 +2,18 @@ import React from "react"
 import styled from "styled-components"
 import { SectionWrapper, HeadlineTitle } from "../styles"
 
+import Toggle from "./Toggle"
+
 const FaqSection = () => {
   return (
     <FAQSection className="faq-section">
       <HeadlineTitle>
         Any Question <span>FAQ</span>
       </HeadlineTitle>
-      <div className="question">
-        <h4>How do I start?</h4>
+      <Toggle>
+        <div className="question">
+          <h4>How do I start?</h4>
+        </div>
         <div className="answer">
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa,
@@ -17,7 +21,7 @@ const FaqSection = () => {
           </p>
           <p>Lorem ipsum dolor sit amet.</p>
         </div>
-      </div>
+      </Toggle>
       <div className="question">
         <h4>How do I start?</h4>
         <div className="answer">
@@ -71,6 +75,7 @@ const FAQSection = styled(SectionWrapper)`
   & .question {
     padding: 2em;
     position: relative;
+    color: white;
 
     &::after {
       content: "";
@@ -79,6 +84,11 @@ const FAQSection = styled(SectionWrapper)`
       height: 0.2em;
       background: white;
       bottom: 0;
+    }
+
+    .answer {
+      color: #23d997;
+      line-height: 1.5;
     }
 
     h4 {
