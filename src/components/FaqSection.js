@@ -1,67 +1,65 @@
 import React from "react"
 import styled from "styled-components"
 import { SectionWrapper, HeadlineTitle } from "../styles"
+import { motion, AnimateSharedLayout } from "framer-motion"
+
+import { fade } from "../animation"
+
+import { useScroll } from "./useScroll"
 
 import Toggle from "./Toggle"
 
 const FaqSection = () => {
+  const [element, controls] = useScroll()
   return (
-    <FAQSection className="faq-section">
+    <FAQSection
+      variants={fade}
+      ref={element}
+      animate={controls}
+      initial="hidden"
+      className="faq-section"
+    >
       <HeadlineTitle>
         Any Question <span>FAQ</span>
       </HeadlineTitle>
-      <Toggle>
-        <div className="question">
-          <h4>How do I start?</h4>
-        </div>
-        <div className="answer">
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa,
-            autem.
-          </p>
-          <p>Lorem ipsum dolor sit amet.</p>
-        </div>
-      </Toggle>
-      <div className="question">
-        <h4>How do I start?</h4>
-        <div className="answer">
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa,
-            autem.
-          </p>
-          <p>Lorem ipsum dolor sit amet.</p>
-        </div>
-      </div>
-      <div className="question">
-        <h4>Daily Schedule</h4>
-        <div className="answer">
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa,
-            autem.
-          </p>
-          <p>Lorem ipsum dolor sit amet.</p>
-        </div>
-      </div>
-      <div className="question">
-        <h4>Payment Methods</h4>
-        <div className="answer">
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa,
-            autem.
-          </p>
-          <p>Lorem ipsum dolor sit amet.</p>
-        </div>
-      </div>
-      <div className="question">
-        <h4>What Products do you Offer?</h4>
-        <div className="answer">
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa,
-            autem.
-          </p>
-          <p>Lorem ipsum dolor sit amet.</p>
-        </div>
-      </div>
+      <AnimateSharedLayout>
+        <Toggle title="How do I start">
+          <div className="answer">
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa,
+              autem.
+            </p>
+            <p>Lorem ipsum dolor sit amet.</p>
+          </div>
+        </Toggle>
+        <Toggle title="Daily Schedule">
+          <div className="answer">
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa,
+              autem.
+            </p>
+            <p>Lorem ipsum dolor sit amet.</p>
+          </div>
+        </Toggle>
+        <Toggle title="Payment Methods">
+          <div className="answer">
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa,
+              autem.
+            </p>
+            <p>Lorem ipsum dolor sit amet.</p>
+          </div>
+        </Toggle>
+        <Toggle title="What Products do you Offer?">
+          <div className="answer">
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa,
+              autem.
+            </p>
+            <p>Lorem ipsum dolor sit amet.</p>
+          </div>
+        </Toggle>
+      </AnimateSharedLayout>
     </FAQSection>
   )
 }
@@ -69,32 +67,14 @@ const FaqSection = () => {
 const FAQSection = styled(SectionWrapper)`
   flex-direction: column;
   width: 100%;
-  align-items: center;
-  padding: 2em;
+  align-items: flex-start;
+  padding: 5em;
+  text-align: left;
 
-  & .question {
-    padding: 2em;
-    position: relative;
-    color: white;
-
-    &::after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 0.2em;
-      background: white;
-      bottom: 0;
-    }
-
-    .answer {
-      color: #23d997;
-      line-height: 1.5;
-    }
-
-    h4 {
-      font-size: clamp(1.1em, 3vw, 1.4em);
-      padding-bottom: 1em;
-    }
+  .answer {
+    line-height: 1.5;
+    display: block;
+    padding: 1em 0;
   }
 `
 

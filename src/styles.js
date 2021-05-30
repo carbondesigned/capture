@@ -11,7 +11,7 @@ export const HeadlineTitle = styled(motion.h2)`
   }
 `
 
-export const SectionWrapper = styled.div`
+export const SectionWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
   color: white;

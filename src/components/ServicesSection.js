@@ -2,6 +2,9 @@ import React from "react"
 import { HeadlineTitle, SectionWrapper, CardGrid, StyledImage } from "../styles"
 import styled from "styled-components"
 
+import { fade } from "../animation"
+import { useScroll } from "./useScroll"
+
 // Import Icons
 import clock from "../img/clock.svg"
 import diaphragm from "../img/diaphragm.svg"
@@ -10,9 +13,16 @@ import teamwork from "../img/teamwork.svg"
 import home2 from "../img/home2.png"
 
 const ServicesSection = () => {
+  const [element, controls] = useScroll()
   return (
-    <section className="services">
-      <ServiceSectionWrapper>
+    <section>
+      <ServiceSectionWrapper
+        className="services"
+        variants={fade}
+        ref={element}
+        animate={controls}
+        initial="hidden"
+      >
         <div className="col-l">
           <HeadlineTitle>
             High <span>Quality</span> services.
