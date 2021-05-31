@@ -7,7 +7,8 @@ import { HeadlineTitle } from "../styles"
 
 // Animation
 import { motion } from "framer-motion"
-import { pageAnimation } from "../animation"
+import { pageAnimation, scrollReveal } from "../animation"
+import { useScroll } from "../components/useScroll"
 
 const MovieDetail = () => {
   const history = useHistory()
@@ -21,6 +22,7 @@ const MovieDetail = () => {
     setMovie(currentMovie[0])
   }, [movies, url])
 
+  const [element, controls] = useScroll()
   return (
     <React.Fragment>
       {movie && (
@@ -40,7 +42,12 @@ const MovieDetail = () => {
             </div>
             <img src={movie.mainImg} alt="movie" className="headline-img" />
           </Headline>
-          <Awards>
+          <Awards
+            variant={scrollReveal}
+            ref={element}
+            initial="hidden"
+            animate={controls}
+          >
             {movie.awards.map((award) => (
               <Award
                 title={award.title}
@@ -65,7 +72,7 @@ const StyledMovieDetail = styled(motion.section)`
   width: 100%;
 `
 
-const Headline = styled.div`
+const Headline = styled(motion.div)`
   color: white;
   width: 100%;
   position: relative;
@@ -110,7 +117,7 @@ const Headline = styled.div`
   }
 `
 
-const Awards = styled.section`
+const Awards = styled(motion.section)`
   display: flex;
   flex-wrap: wrap;
   margin: 5em 10em;
@@ -125,7 +132,7 @@ const Award = ({ title, description }) => {
   )
 }
 
-const StyledAward = styled.div`
+const StyledAward = styled(motion.div)`
   color: white;
   padding: 2em 5em;
   margin: 5em 0;

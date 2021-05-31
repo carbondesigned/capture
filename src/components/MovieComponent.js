@@ -4,11 +4,20 @@ import { HeadlineTitle } from "../styles"
 import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
 
-import { photoZoomAnim, fade } from "../animation"
+import { useScroll } from "./useScroll"
+
+import { photoZoomAnim, fade, scrollReveal, skewReveal } from "../animation"
 
 const MovieComponent = ({ children, src, path }) => {
+  const [element, controls] = useScroll()
+  const [element2, controls2] = useScroll()
   return (
-    <StyledMovie>
+    <StyledMovie
+      variants={skewReveal}
+      ref={element}
+      initial="hidden"
+      animate={controls}
+    >
       <HeadlineTitle
         initial={{ color: "#fff", opacity: 0 }}
         animate={{ color: "#1b1b1b", opacity: 1 }}
@@ -36,7 +45,7 @@ const MovieComponent = ({ children, src, path }) => {
   )
 }
 
-const StyledMovie = styled.div`
+const StyledMovie = styled(motion.div)`
   position: relative;
   padding: 1em 0 4em 0;
 

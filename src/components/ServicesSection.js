@@ -2,7 +2,7 @@ import React from "react"
 import { HeadlineTitle, SectionWrapper, CardGrid, StyledImage } from "../styles"
 import styled from "styled-components"
 
-import { fade } from "../animation"
+import { fade, scrollReveal } from "../animation"
 import { useScroll } from "./useScroll"
 
 // Import Icons
@@ -18,7 +18,7 @@ const ServicesSection = () => {
     <section>
       <ServiceSectionWrapper
         className="services"
-        variants={fade}
+        variants={scrollReveal}
         ref={element}
         animate={controls}
         initial="hidden"

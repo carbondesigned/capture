@@ -59,7 +59,7 @@ export const photoZoomAnim = {
     opacity: 1,
     transition: {
       ease: "easeOut",
-      duration: 1,
+      duration: 2,
     },
   },
 }
@@ -72,6 +72,41 @@ export const pageSlider = {
     transition: {
       ease: "easeOut",
       duration: 1,
+    },
+  },
+}
+
+export const scrollReveal = {
+  hidden: {
+    opacity: 0,
+    scale: 1.05,
+    transition: { duration: 2, ease: "easeInOut" },
+  },
+  show: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      ease: "easeOut",
+      duration: 1,
+    },
+  },
+}
+
+export const skewReveal = {
+  hidden: {
+    opacity: 0,
+    skew: "15deg",
+    x: -200,
+    transition: {
+      duration: 2,
+    },
+  },
+  show: {
+    skew: "0deg",
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.85,
     },
   },
 }

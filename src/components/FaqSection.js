@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { SectionWrapper, HeadlineTitle } from "../styles"
 import { motion, AnimateSharedLayout } from "framer-motion"
 
-import { fade } from "../animation"
+import { fade, scrollReveal } from "../animation"
 
 import { useScroll } from "./useScroll"
 
@@ -13,7 +13,7 @@ const FaqSection = () => {
   const [element, controls] = useScroll()
   return (
     <FAQSection
-      variants={fade}
+      variants={scrollReveal}
       ref={element}
       animate={controls}
       initial="hidden"
