@@ -6,11 +6,10 @@ import { motion } from "framer-motion"
 
 import { useScroll } from "./useScroll"
 
-import { photoZoomAnim, fade, scrollReveal, skewReveal } from "../animation"
+import { photoZoomAnim, fade, skewReveal } from "../animation"
 
 const MovieComponent = ({ children, src, path }) => {
   const [element, controls] = useScroll()
-  const [element2, controls2] = useScroll()
   return (
     <StyledMovie
       variants={skewReveal}

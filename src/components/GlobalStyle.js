@@ -9,7 +9,8 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         background: #1b1b1b;
-        font-family: 'Poppins', sans-serif
+        font-family: 'Poppins', sans-serif;
+        overflow-x: hidden;
     }
 
     .btn {

@@ -4,6 +4,8 @@ import { Link } from "react-router-dom"
 
 import { HeadlineTitle } from "../styles"
 
+import ScrollTop from "../components/ScrollTop"
+
 // img
 import athlete from "../img/athlete-small.png"
 import theracer from "../img/theracer-small.png"
@@ -52,6 +54,7 @@ const OurWork = () => {
         src={goodtimes}
         path={"work/good-times"}
       />
+      <ScrollTop />
     </StyledWorkSection>
   )
 }

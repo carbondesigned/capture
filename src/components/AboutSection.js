@@ -1,6 +1,8 @@
 import React from "react"
 import home1 from "../img/home1.png"
 
+import ScrollTop from "../components/ScrollTop"
+
 // Styled
 import styled from "styled-components"
 import { StyledImage, SectionWrapper } from "../styles"
@@ -17,6 +19,7 @@ const AboutSection = () => {
   return (
     <StyledAboutHero>
       <SectionWrapper>
+        <ScrollTop />
         <section className="hero-about">
           <div className="col-l">
             <div className="headline">
@@ -65,6 +68,7 @@ const StyledAboutHero = styled.section`
     align-items: center;
     color: white;
     margin-top: 2em;
+    overflow-x: hidden;
   }
 
   @media only screen and (min-width: 1024px) {
